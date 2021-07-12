@@ -27,28 +27,6 @@ public class Main {
                 {"J","~","~","~","~","~","~","~","~","~","~"}
         };
 
-        //Get PlayerOne ships and change board
-
-        public void addCarrier(String[] boat) {
-            addBoat(boat);
-        }
-
-        public void addBattleship(String[] boat) {
-            addBoat(boat);
-        }
-
-        public void addSubmarine(String[] boat) {
-            addBoat(boat);
-        }
-
-        public void addCruiser(String[] boat) {
-            addBoat(boat);
-        }
-
-        public void addDestroyer(String[] boat) {
-            addBoat(boat);
-        }
-
         public void printBoard() {
             // Update board
             // A = 65
@@ -180,8 +158,6 @@ public class Main {
                 if (Integer.valueOf(slots[1]) != Integer.valueOf(slots[3])) {
                     //Horizontal
                     if (Math.abs(Integer.valueOf(slots[1]) - Integer.valueOf(slots[3])) == size - 1) {
-                        //return true;
-                        //System.out.println("Checking if ships are close");
                         return checkIfClose(size, slots, board);
                     } else {
                         return false;
@@ -190,42 +166,39 @@ public class Main {
                     int a = slots[0].charAt(0);
                     int b = slots[2].charAt(0);
                     if (Math.abs(Math.abs(a - b)) == size - 1) {
-                        //return true;
-                        //System.out.println("Checking if ships are close");
                         return checkIfClose(size, slots, board);
                     } else {
                         return false;
                     }
                 }
             } else {
-                //System.out.println("SIIN");
                 return false;
             }
         }
 
         public void setCarrier(String[] carrier, Board board) {
             this.carrier = carrier;
-            board.addCarrier(carrier);
+            board.addBoat(carrier);
         }
 
         public void setBattleship(String[] battleship, Board board) {
             this.battleship = battleship;
-            board.addBattleship(battleship);
+            board.addBoat(battleship);
         }
 
         public void setSubmarine(String[] submarine, Board board) {
             this.submarine = submarine;
-            board.addSubmarine(submarine);
+            board.addBoat(submarine);
         }
 
         public void setCruiser(String[] cruiser, Board board) {
             this.cruiser = cruiser;
-            board.addCruiser(cruiser);
+            board.addBoat(cruiser);
         }
 
         public void setDestroyer(String[] destroyer, Board board) {
             this.destroyer = destroyer;
-            board.addDestroyer(destroyer);
+            board.addBoat(destroyer);
         }
 
         public String[] getCarrier() {
